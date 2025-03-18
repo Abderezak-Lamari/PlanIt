@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://abderezak-lamari.github.io/PlanIt",
+  "homepage": "https://abderezak-lamari.github.io/PlanIt/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
