@@ -8,6 +8,7 @@ import Home from './Home'
 import AboutUs from './AboutUs'
 import Analytics from './Analytics'
 import GetStarted from './GetStarted'
+import Week from './Week';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/account-settings" element={<AccountSettings />} />
           <Route path="/get-started" element={<GetStarted />} />
+          <Route path="/week" element={<Week />} />
         </Routes>
       </div>
     </Router>

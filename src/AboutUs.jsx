@@ -5,15 +5,8 @@ import './AboutUs.css'
 import Banner from './Banner';
 import { useInView } from 'react-intersection-observer';
 import 'animate.css';
-import Particles from 'react-tsparticles';
-import { loadFull } from 'tsparticles';
-
 
 const AboutUs = () => {
-
-    const particlesInit = async (main) => {
-      await loadFull(main);
-  };
 
   const useScrollAnimation = () => {
     return useInView({ triggerOnce: true, threshold: 0 });

@@ -9,6 +9,7 @@ const Banner = () => {
         <img className="Logo" src="PlanIt.png" alt="Logo" />
         
         <Link to="/" className="ButtonPannel">Home</Link>
+        <Link to="/week" className="ButtonPannel">Week</Link>
         <Link to="/about-us" className="ButtonPannel">About Us</Link>
         <Link to="/analytics" className="ButtonPannel">Planner</Link>
         <Link to="/account-settings" className="ButtonPannel">Account</Link>

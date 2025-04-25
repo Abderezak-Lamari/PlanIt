@@ -1,0 +1,120 @@
+ul {
+    list-style-type: none; /* Removes the dots */
+    padding-left: 0;       /* Removes default left padding */
+}
+
+.Void {
+    margin-left: 3rem;
+}
+
+html {
+    scrollbar-gutter: auto;
+}
+
+.Quote {
+    padding-top: 3rem;
+    margin-left: -3rem;
+    padding-left: 3rem;
+    height: 10rem;
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(0deg, rgb(255, 255, 255), rgba(255, 41, 178, 0.6));
+}
+
+.Titl {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    width: fit-content;
+    margin-top: 3rem;
+}
+
+.TitleP {
+    margin: 0;
+}
+
+.TitlePS {
+    margin: 0;
+}
+
+.List {
+    display: flex;
+    align-items: center;
+    height: 10rem;
+    margin-right: 3rem;
+}
+
+.RealList {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 0 1rem;
+    overflow-x: hidden;
+    justify-content: space-between;
+}
+
+.RightB {
+    height: 1rem;
+    background-color: rgba(210, 39, 182, 0.57);
+    border: none;
+    border-radius: 50%;
+    height: 1.2rem;
+}
+
+.LeftB {
+    height: 1rem;
+    background-color: rgba(210, 39, 182, 0.57);
+    border: none;
+    border-radius: 50%;
+    height: 1.2rem;
+}
+
+.Element {
+    height: 100%;
+    width: 5rem;
+    background-color: rgba(255, 41, 178, 1);
+    border-radius: 3rem;
+}
+
+.Face {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    margin: 1rem auto;
+    background-color: white;
+}
+
+.Num {
+    text-align: center;
+    margin: 0;
+    margin-top: -0.2rem;
+}
+
+.Day {
+    text-align: center;
+    margin: 0;
+}
+
+.Cat {
+    margin-right: 3rem;
+}
+
+.CheckBox {
+    margin-bottom: 0.5rem;
+}
+
+.Date {
+    font-size: 0.8rem;
+    margin-left: 0;
+    margin-bottom: 3rem;
+}
+
+.Hey {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.M {
+    margin: 0;
+    margin-top: 1rem;
+}
