@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import './App.css'
 import './Analytics.css'
 
 import Banner from './Banner';
 
+import { Chart } from 'chart.js/auto';
+import { Line, Bar } from 'react-chartjs-2';
+
 const Analytics = () => {
+  const labels = ["January", "February", "march", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
+  }, [darkMode]);
+
   return (
     <>
     <Banner /> 
@@ -19,12 +33,11 @@ const Analytics = () => {
         <div className='DayBox'>
           <div className='Bottle'>
             <div className='Square'></div>
-            <div className='Circle'>
+            <div className='Circle shadow-drop-2-center'>
               <p className='Percentage'>40%</p>
-              <div class="water-wave1"></div>
-              <div class="water-wave2"></div>
-              <div class="water-wave3"></div>
-              <div class="water-wave4"></div>
+              <div className="wave one"></div>
+              <div className="wave two"></div>
+              <div className="wave three"></div>
             </div>
           </div>
         </div>
@@ -33,37 +46,28 @@ const Analytics = () => {
 
         <div className='WeekBox'>
           <div className='Stat'>
-            <div className='DayAnalytic'>
-              <div className='Tower'></div>
-              <p className='WeekDay'>Saturday</p>
-            </div>
-            <div className='DayAnalytic'>
-              <div className='Tower'></div>
-              <p className='WeekDay'>Sunday</p>
-            </div>
-            <div className='DayAnalytic'>
-              <div className='Tower'></div>
-              <p className='WeekDay'>Monday</p>
-            </div>
-            <div className='DayAnalytic'>
-              <div className='Tower'></div>
-              <p className='WeekDay'>Tuesday</p>
-            </div>
-            <div className='DayAnalytic'>
-              <div className='Tower'></div>
-              <p className='WeekDay'>Wednesday</p>
-            </div>
-            <div className='DayAnalytic'>
-              <div className='Tower'></div>
-              <p className='WeekDay'>Thursday</p>
-            </div>
-            <div className='DayAnalytic'>
-              <div className='Tower'></div>
-              <p className='WeekDay'>Friday</p>
-            </div>
+            
+            <Bar
+              data={{
+                labels: labels,
+                datasets: [
+                  {
+                    label: "Progress",
+                    data: [10, 14, 43, 4, 14, 37, 5, 9, 11, 1, 1, 0],
+                    tension: 0.3,
+                    backgroundColor: 'rgba(238, 164, 191, 1)',
+                    borderColor: 'rgba(226, 43, 111, 1)',
+                    fill: true,
+                    borderRadius: 20,
+                    barThickness: 15,
+                  }
+                ],
+                options: {
+                  responsive: true,
+                }
+              }}
+            ></Bar>
           </div>
-
-          <div className='dividerX'></div>
 
           <div className='InfoAnalytics'>
             <div className='BoxInfo'>
@@ -98,64 +102,23 @@ const Analytics = () => {
           </div>
         </div>
         <div className='GraphBox'>
-          <div className='Graph'>
-            <div className='Colum1'></div>
-            <div className='Colum2'></div>
-            <div className='Colum3'></div>
-            <div className='Colum4'></div>
-            
-            <div className='MonthTower'>
-              <div className='MonthStick'></div>
-            </div>
-            <div className='MonthTower'>
-              <div className='MonthStick'></div>
-            </div>
-            <div className='MonthTower'>
-             <div className='MonthStick'></div>
-            </div>
-            <div className='MonthTower'>
-              <div className='MonthStick'></div>
-            </div>
-            <div className='MonthTower'>
-             <div className='MonthStick'></div>
-            </div>
-            <div className='MonthTower'>
-             <div className='MonthStick'></div>
-            </div>
-            <div className='MonthTower'>
-              <div className='MonthStick'></div>
-            </div>
-            <div className='MonthTower'>
-              <div className='MonthStick'></div>
-            </div>
-            <div className='MonthTower'>
-              <div className='MonthStick'></div>
-            </div>
-            <div className='MonthTower'>
-              <div className='MonthStick'></div>
-            </div>
-            <div className='MonthTower'>
-              <div className='MonthStick'></div>
-            </div>
-            <div className='MonthTower'>
-              <div className='MonthStick'></div>
-            </div>
-          </div>
+          <Line
+            data={{
+              labels: labels,
+              datasets: [
+                {
+                  label: "Progress",
+                  data: [10, 14, 43, 4, 14, 37, 5, 9, 11, 1, 1, 0],
+                  tension: 0.3,
+                  backgroundColor: 'rgba(238, 164, 191, 1)',
+                  borderColor: 'rgba(226, 43, 111, 1)',
+                  fill: true,
+                }
+              ],
+            }}
+          ></Line>
 
-          <div className='GraphMonths'>
-            <p className='Month'>January</p>
-            <p className='Month'>February</p>
-            <p className='Month'>March</p>
-            <p className='Month'>April</p>
-            <p className='Month'>May</p>
-            <p className='Month'>June</p>
-            <p className='Month'>July</p>
-            <p className='Month'>August</p>
-            <p className='Month'>September</p>
-            <p className='Month'>October</p>
-            <p className='Month'>November</p>
-            <p className='Month'>December</p>
-          </div>
+          <div className='Air'></div>
         </div>
         
       </div>

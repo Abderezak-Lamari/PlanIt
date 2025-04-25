@@ -2,15 +2,33 @@ import React from 'react';
 
 import './AboutUs.css'
 import Banner from './Banner';
+import { useInView } from 'react-intersection-observer';
+import 'animate.css';
 
 const AboutUs = () => {
+
+  const useScrollAnimation = () => {
+    return useInView({ triggerOnce: true, threshold: 0 });
+  };
+  
+  const { ref: ref, inView: inView } = useScrollAnimation();
+  const { ref: ref1, inView: inView1 } = useScrollAnimation();
+  const { ref: ref2, inView: inView2 } = useScrollAnimation();
+  const { ref: ref3, inView: inView3 } = useScrollAnimation();
+  const { ref: ref4, inView: inView4 } = useScrollAnimation();
+  const { ref: ref5, inView: inView5 } = useScrollAnimation();
+  const { ref: ref6, inView: inView6 } = useScrollAnimation();
+  const { ref: ref7, inView: inView7 } = useScrollAnimation();
+  const { ref: ref8, inView: inView8 } = useScrollAnimation();
+  const { ref: ref9, inView: inView9 } = useScrollAnimation();
+
   return (
     <>
     <Banner /> 
       <div className='AboutUs'>
         <img className='Background1' src='Background.png'></img>
         <img className='Background2' src='Background.png'></img>
-        <div className='NotebookBox'>
+        <div className='NotebookBox animate__animated animate__fadeInUp' >
           <div className='Springs'>
             <img className='Spring' src='Springs.png'></img>
             <img className='Spring' src='Springs.png'></img>
@@ -81,27 +99,27 @@ const AboutUs = () => {
         <h2 className='TitlesAbout'>About Us</h2>
 
         <div className='CatAndNotes'>
-          <div className='Note'>
+          <div ref={ref9} className={`Note ${inView9 ? 'animate__animated animate__fadeIn' : ''}`}>
             <img className='NoteImg' src='NoteBook.png'></img>
             <p className='NoteText'>At Plan It, we believe in the power of organization to simplify life. Our smart planner helps you manage tasks, set priorities, and stay productive effortlessly. Whether you're a student, a professional, or just someone who loves staying on track, our platform is designed to make planning fun and efficient. Join us in turning goals into achievements—one task at a time</p>
           </div>
 
-          <img className='CuteCat' src='Cat.png'></img>
+          <img src='Cat.png'  ref={ref8} className={`CuteCat ${inView8 ? 'animate__animated animate__fadeInBottomRight' : ''}`}></img>
         </div>
 
         <div className='PhoneAndText'>
-          <div className='PhoneTextBox'>
+          <div ref={ref} className={`PhoneTextBox ${inView ? 'animate__animated animate__fadeInLeft' : ''}`}>
             <p className='PhoneTextTitle'>Track Your Progress Instantly</p>
             <p className='PhoneText'>For years, we've refined our planner to seamlessly integrate into your workflow. With intuitive tracking and smart insights, you can monitor your progress, stay organized, and achieve your goals effortlessly</p>
           </div>
-          <img className='Phone1' src='Phone.png'></img>
+          <img src='Phone.png' ref={ref1} className={`Phone1 ${inView1 ? 'animate__animated animate__fadeInRight' : ''}`}></img>
         </div>
 
         <img className='HeartLine'></img>
 
         <div className='PhoneAndText'>
-          <img className='Phone2' src='Phone.png'></img>
-          <div className='PhoneTextBox2'>
+          <img src='Phone.png' ref={ref2} className={`Phone2 ${inView2 ? 'animate__animated animate__fadeInLeft' : ''}`}></img>
+          <div ref={ref3} className={`PhoneTextBox2 ${inView3 ? 'animate__animated animate__fadeInRight' : ''}`}>
             <p className='PhoneTextTitle'>Stay Consistent, Keep Winning</p>
             <p className='PhoneText'>We've designed our planner to help you stay consistent and motivated. Track your streaks effortlessly, build lasting habits, and push yourself toward success every day with smart insights and intuitive progress tracking</p>
           </div>
@@ -109,17 +127,17 @@ const AboutUs = () => {
 
         <img className='HeartLine'></img>
 
-        <h2 className='TitlesAbout'>Start Tracking, Stay Motivated</h2>
+        <h2 ref={ref4} className={`TitlesAbout ${inView4 ? 'animate__animated animate__fadeIn' : ''}`}>Start Tracking, Stay Motivated</h2>
 
         <div className='PcAndStuff'>
-          <div className='TextAndCheckmark1'>
+          <div ref={ref5} className={`TextAndCheckmark1 ${inView5 ? 'animate__animated animate__fadeInLeft' : ''}`}>
             <p>Our planner helps you stay consistent and motivated by effortlessly tracking your streaks. Build lasting habits</p>
             <img className='CheckMark' src='CheckMark.png'></img>
           </div>
 
-          <img className='Pc' src='Pc.png'></img>
+          <img src='Pc.png' ref={ref6} className={`Pc ${inView6 ? 'animate__animated animate__zoomIn' : ''}`}></img>
 
-          <div className='TextAndCheckmark2'>
+          <div ref={ref7} className={`TextAndCheckmark2 ${inView7 ? 'animate__animated animate__fadeInRight' : ''}`}>
             <img className='CheckMark' src='CheckMark.png'></img>
             <p>stay accountable, and celebrate your progress with smart insights and intuitive tracking.</p>
           </div>

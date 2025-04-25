@@ -1,3 +1,23 @@
+:root {
+    --bg-color: white;
+    --text-color: black;
+    --button-bg: #ccc;
+    --bc: rgba(255, 251, 240, 1);
+    --note: rgba(253, 218, 231, 1);
+    --note1: rgba(209, 104, 144, 1);
+}
+  
+[data-theme="dark"] {
+    --bg-color: #2D2D2D;
+    --text-color: white;
+    --button-bg: #444;
+    --bc: black;
+    --note: rgba(227, 222, 254, 1);
+    --note1: rgba(151, 71, 255, 1);
+    color: white;
+    background-color: black;
+}
+
 .DayWeekBox {
     display: flex;
     height: 33vw;
@@ -56,6 +76,7 @@
   }
 
 .Percentage {
+    position: absolute;
     color: white;
     z-index: 10;
     font-weight: bold;
@@ -127,7 +148,8 @@
 }
 
 .Stat {
-    padding: 0 4rem;
+    padding: 0 2rem;
+    padding-top: 2vw;
     height: 78%;
     display: flex;
     justify-content: space-between;
@@ -162,11 +184,15 @@
 }
 
 .InfoAnalytics {
-    height: 22%;
+    height: 15%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.Air {
+    margin-bottom: 5rem;
 }
 
 .InfoAnalytic{
@@ -306,3 +332,49 @@
     background-color: #FDC7DE;
     margin-top: auto;
 }
+
+.wave{
+	position: absolute;
+	top: 50%;
+	left: -50%;
+	width:200%;
+	height:200%;
+	background-color: rgba(134, 114, 188, 1);
+	border-radius: 35%;
+	animation-name: waves;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	&.one{
+		animation-duration: 7000ms;
+		opacity: 0.4;
+	}
+
+	&.two{
+		background-color: rgba(89, 64, 116, 1);
+		animation-duration: 9000ms;
+	}
+	
+	&.three{
+		animation-duration: 12000ms;
+	}
+}
+
+
+@keyframes waves{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+.SODA {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+}
+
+.shadow-drop-2-center:hover{animation:shadow-drop-2-center .4s cubic-bezier(.25,.46,.45,.94) both}
+.shadow-drop-2-center {transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); transform: translateZ(0); box-shadow: 0 0 0 0 transparent;}
+@keyframes shadow-drop-2-center{0%{transform:translateZ(0);box-shadow:0 0 0 0 transparent}100%{transform:translateZ(50px);box-shadow:0 0 20px 0 rgba(0,0,0,.35)}}
