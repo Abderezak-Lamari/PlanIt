@@ -32,6 +32,12 @@ const Week = () => {
           <Element></Element>
           <Element></Element>
           <Element></Element>
+          <Element></Element>
+          <Element></Element>
+          <Element></Element>
+          <Element></Element>
+          <Element></Element>
+          <Element></Element>
         </div>
         <button className='RightB'>&gt;</button>
       </div>
