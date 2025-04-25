@@ -1,11 +1,19 @@
 import React from 'react';
+import { useEffect } from "react";
 
 import './AboutUs.css'
 import Banner from './Banner';
 import { useInView } from 'react-intersection-observer';
 import 'animate.css';
+import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
+
 
 const AboutUs = () => {
+
+    const particlesInit = async (main) => {
+      await loadFull(main);
+  };
 
   const useScrollAnimation = () => {
     return useInView({ triggerOnce: true, threshold: 0 });
@@ -24,10 +32,11 @@ const AboutUs = () => {
 
   return (
     <>
-    <Banner /> 
+    <Banner />
       <div className='AboutUs'>
-        <img className='Background1' src='Background.png'></img>
-        <img className='Background2' src='Background.png'></img>
+
+        <div className='Background1'></div>
+        <div className='Background2'></div>
         <div className='NotebookBox animate__animated animate__fadeInUp' >
           <div className='Springs'>
             <img className='Spring' src='Springs.png'></img>
@@ -148,7 +157,7 @@ const AboutUs = () => {
           <div className='BottomInfo'>
             <div className='InfoRow'>
               <img className='LogoImg' src='PlanIt.png'></img>
-              <p>20 million users organize their work and daily lives with Todoist.</p>
+              <p className='FunFact'>20 million users organize their work and daily lives with TodoLists.</p>
             </div>
 
             <div className='InfoRow'>

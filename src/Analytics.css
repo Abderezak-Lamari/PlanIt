@@ -5,6 +5,20 @@
     --bc: rgba(255, 251, 240, 1);
     --note: rgba(253, 218, 231, 1);
     --note1: rgba(209, 104, 144, 1);
+    --buttons: rgba(246, 64, 141, 1);
+    --barsman: rgba(227, 222, 254, 1);
+    --dangerbar: rgba(255, 193, 216, 0.3);
+    --xbar: lightgray;
+    --barsmanhelp: gray;
+    --col: white;
+    --pcol: rgba(251, 235, 241, 1);
+    --barl: lightgray;
+    --endme: Black;
+    --www: rgb(254, 242, 238);
+    --bb: rgba(247, 222, 222, 1);
+    --bt: rgba(169, 67, 117, 1);
+    --b: lightgray;
+    --image-url: url('Background.png');
 }
   
 [data-theme="dark"] {
@@ -14,8 +28,22 @@
     --bc: black;
     --note: rgba(227, 222, 254, 1);
     --note1: rgba(151, 71, 255, 1);
+    --buttons: rgba(151, 71, 255, 1);
+    --barsman: rgba(144, 141, 160, 1);
+    --dangerbar: rgba(144, 141, 160, 0.12);
+    --xbar: rgba(151, 71, 255, 0.6);
+    --barsmanhelp: black;
+    --col: black;
+    --pcol: rgba(140, 122, 206, 1);
+    --endme: rgba(0, 0, 0, 0.48);
+    --www: rgba(193, 182, 242, 1);
+    --blackwee: black;
+    --bb: rgba(208, 196, 242, 1);
+    --bt: rgba(31, 23, 104, 1);
+    --b: black;
     color: white;
     background-color: black;
+    --image-url: url();
 }
 
 .DayWeekBox {

@@ -10,6 +10,7 @@ body {
     max-width: 55rem;
     max-height: 40rem;
     z-index: -2;
+    color: black;
 }
 
 .Springs {
@@ -84,7 +85,7 @@ body {
 .GetStartedButton {
     height: 100%;
     width: 20%;
-    background-color: #F6408D;
+    background-color: var(--buttons);
     border: none;
     border-radius: 0.3rem;
     color: white;
@@ -111,22 +112,27 @@ body {
     position: absolute;
     z-index: -10;
     width: 50%;
+    height: 80vw;
     margin-top: -5rem;
+    background-image: var(--image-url);
 }
 
 .Background2 {
     position: absolute;
     z-index: -10;
     width: 50%;
+    height: 80vw;
     margin-top: -5rem;
     right: 0;
+    background-image: var(--image-url);
 }
 
 .CoolStuff {
     width: 100%;
     height: 5rem;
-    background-color: rgb(254, 242, 238);
+    background-color: var(--www);
     margin-top: 5rem;
+    color: black;
     display: flex;
     justify-content: space-between;
 }
@@ -134,7 +140,7 @@ body {
 .DividerY {
     height: 70%;
     width: 1px;
-    background-color: gray;
+    background-color: var(--endme);
     align-self: center;
 }
 
@@ -270,7 +276,8 @@ body {
 .BottomInfoBox {
     height: 11rem;
     width: 100%;
-    background-color: #FDC7DE;
+    background-color: var(--bb);
+    color: var(--bt);
 }
 
 .BottomInfo {
@@ -279,7 +286,6 @@ body {
     width: 100%;
     justify-content: space-evenly;
     font-size: smaller;
-    color: white;
 }
 
 .LogoImg {
@@ -297,7 +303,6 @@ body {
 }
 
 .Copyright {
-    color: white;
     font-size: small;
     margin: 0;
     text-align: center;
@@ -306,6 +311,14 @@ body {
 .DividerX {
     width: 55%;
     height: 1px;
-    background-color: white;
+    background-color: var(--bt);
     margin: 0 auto;
+}
+
+.FunFact {
+    padding: 0 1rem;
+}
+
+html, body {
+    overflow-x: hidden;
 }

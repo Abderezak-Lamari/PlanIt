@@ -101,6 +101,7 @@ const Home = () => {
       <h3 className='AskText'>Are you Satisfied? If not not hesitate to give notes to your ai and regenerate!</h3>
       <textarea id="message" className='TextAI'></textarea>
       <button className='TaskButton'>Regenerate</button>
+      <div className='Air'></div>
     </>
   );
 }

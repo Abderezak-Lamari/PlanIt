@@ -10,15 +10,6 @@ import { Line, Bar } from 'react-chartjs-2';
 
 const Analytics = () => {
   const labels = ["January", "February", "march", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      document.documentElement.removeAttribute("data-theme");
-    }
-  }, [darkMode]);
 
   return (
     <>

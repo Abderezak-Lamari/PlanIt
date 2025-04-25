@@ -11,7 +11,7 @@ import GetStarted from './GetStarted'
 
 function App() {
   return (
-    <Router basename='/PlanIt'>
+    <Router basename='/PlanIt/'>
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
