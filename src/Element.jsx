@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Week.css'
+
 const Element = () => {
   return (
     <div className='Element'>

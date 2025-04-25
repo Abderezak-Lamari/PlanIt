@@ -15,12 +15,12 @@ function App() {
     <Router basename='/PlanIt/'>
       <div>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/planner" element={<Home />} />
+          <Route path="/" element={<AboutUs />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/account-settings" element={<AccountSettings />} />
           <Route path="/get-started" element={<GetStarted />} />
-          <Route path="/week" element={<Week />} />
+          <Route path="/strike" element={<Week />} />
         </Routes>
       </div>
     </Router>

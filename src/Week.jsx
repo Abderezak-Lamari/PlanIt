@@ -13,24 +13,19 @@ const Week = () => {
       <div className='Quote'>
         <div className='Idk'>
           <h1 className='Hey'>Hey !</h1>
-          <h3 className='M'>Do stuff to get good (Skill issue tbh)</h3>
+          <h1 className='Me'>"</h1>
+          <h3 className='Mee'>Do stuff to get good (Skill issue tbh)</h3>
           <p className='M'>-Abderezak</p>
         </div>
         <img className='Cat' src='Cat.png'></img>
       </div>
 
       <h1>My week</h1>
-      <p className='Date'>From 11 April, 2025 to 18 April, 2025</p>
+      <p className='Date'>📅 From 11 April, 2025 to 18 April, 2025</p>
 
       <div className='List'>
         <button className='LeftB'>&lt;</button>
         <div className='RealList'>
-          <Element></Element>
-          <Element></Element>
-          <Element></Element>
-          <Element></Element>
-          <Element></Element>
-          <Element></Element>
           <Element></Element>
           <Element></Element>
           <Element></Element>
@@ -49,24 +44,24 @@ const Week = () => {
 
       <div className='Checkmarks'>
         <ul>
-          <li className='CheckBox'><input type="checkbox" /> Item 1</li>
-          <li className='CheckBox'><input type="checkbox" /> Item 2</li>
-          <li className='CheckBox'><input type="checkbox" /> Item 3</li>
-          <li className='CheckBox'><input type="checkbox" /> Item 1</li>
-          <li className='CheckBox'><input type="checkbox" /> Item 2</li>
-          <li className='CheckBox'><input type="checkbox" /> Item 3</li>
-          <li className='CheckBox'><input type="checkbox" /> Item 1</li>
-          <li className='CheckBox'><input type="checkbox" /> Item 2</li>
-          <li className='CheckBox'><input type="checkbox" /> Item 3</li>
-          <li className='CheckBox'><input type="checkbox" /> Item 1</li>
-          <li className='CheckBox'><input type="checkbox" /> Item 2</li>
-          <li className='CheckBox'><input type="checkbox" /> Item 3</li>
-          <li className='CheckBox'><input type="checkbox" /> Item 1</li>
-          <li className='CheckBox'><input type="checkbox" /> Item 2</li>
-          <li className='CheckBox'><input type="checkbox" /> Item 3</li>
-          <li className='CheckBox'><input type="checkbox" /> Item 1</li>
-          <li className='CheckBox'><input type="checkbox" /> Item 2</li>
-          <li className='CheckBox'><input type="checkbox" /> Item 3</li>
+          <li className='CheckBox'><input type="checkbox" disabled/> Item 1</li>
+          <li className='CheckBox'><input type="checkbox" checked/> Item 2</li>
+          <li className='CheckBox'><input type="checkbox" checked/> Item 3</li>
+          <li className='CheckBox'><input type="checkbox" checked/> Item 2</li>
+          <li className='CheckBox'><input type="checkbox" checked/> Item 3</li>
+          <li className='CheckBox'><input type="checkbox" checked/> Item 1</li>
+          <li className='CheckBox'><input type="checkbox" checked/> Item 1</li>
+          <li className='CheckBox'><input type="checkbox" disabled/> Item 2</li>
+          <li className='CheckBox'><input type="checkbox" checked/> Item 3</li>
+          <li className='CheckBox'><input type="checkbox" disabled/> Item 1</li>
+          <li className='CheckBox'><input type="checkbox" disabled/> Item 2</li>
+          <li className='CheckBox'><input type="checkbox" checked/> Item 3</li>
+          <li className='CheckBox'><input type="checkbox" disabled/> Item 1</li>
+          <li className='CheckBox'><input type="checkbox" checked/> Item 2</li>
+          <li className='CheckBox'><input type="checkbox" checked/> Item 3</li>
+          <li className='CheckBox'><input type="checkbox" disabled/> Item 1</li>
+          <li className='CheckBox'><input type="checkbox" checked/> Item 2</li>
+          <li className='CheckBox'><input type="checkbox" disabled/> Item 3</li>
         </ul>
       </div>
       </div>

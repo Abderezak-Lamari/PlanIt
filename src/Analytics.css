@@ -18,10 +18,14 @@
     --bb: rgba(247, 222, 222, 1);
     --bt: rgba(169, 67, 117, 1);
     --b: lightgray;
+    --wa: rgba(255, 41, 178, 0.6);
     --image-url: url('Background.png');
+    --a: rgba(255, 41, 178, 1);
 }
   
 [data-theme="dark"] {
+    --a: rgba(151, 71, 255, 1);
+    --wa: rgba(151, 71, 255, 0.72);
     --bg-color: #2D2D2D;
     --text-color: white;
     --button-bg: #444;
