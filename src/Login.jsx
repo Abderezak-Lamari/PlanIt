@@ -1,9 +1,9 @@
 import React from 'react';
 
 import './App.css'
-import './GetStarted.css'
+import './Login.css'
 
-const GetStarted = () => {
+const Login = () => {
   return (
     <>
     <div className='SignInPage'>
@@ -33,7 +33,7 @@ const GetStarted = () => {
         <div className='Box'>
           <div class="login-box">
               <img className='logo' src='logo.png'></img>
-              <h1 className='SignIn'>Sign In</h1>
+              <h1 className='SignIn'>Log In</h1>
               <p className='Text2'>Hey, Sign in and Orbit your goals with a plan that's out of this world.</p>
               <form>
                   <div class="input-group">
@@ -47,8 +47,8 @@ const GetStarted = () => {
                       <label><input type="checkbox"/> Remember me</label>
                       <a href="#" class="forgot-password">Forgot password?</a>
                   </div>
-                  <button type="submit" class="login-btn">Sign In</button>
-                  <a href='/PlanIt/login' className='login'>Already signed in?</a>
+                  <button type="submit" class="login-btn">Log In</button>
+                  <a href='/PlanIt/login' className='login'>Haven't loged in?</a>
               </form>
           </div>
         </div>
@@ -59,4 +59,4 @@ const GetStarted = () => {
   );
 }
 
-export default GetStarted;
+export default Login;
