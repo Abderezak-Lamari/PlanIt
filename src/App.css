@@ -37,9 +37,10 @@ body {
 }
 
 .Logo {
-  height: 130%;
+  height: 80%;
   margin-left: 2vw;
   margin-right: 7vw;
+  background-image: var(--logoo);
 }
 
 .ButtonPannel:hover {

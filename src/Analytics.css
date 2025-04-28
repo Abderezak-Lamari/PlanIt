@@ -21,9 +21,11 @@
     --wa: rgba(255, 41, 178, 0.6);
     --image-url: url('Background.png');
     --a: rgba(255, 41, 178, 1);
+    --logoo: url('logoL.png');
 }
   
 [data-theme="dark"] {
+    --logoo: url('logo.png');
     --a: rgba(151, 71, 255, 1);
     --wa: rgba(151, 71, 255, 0.72);
     --bg-color: #2D2D2D;

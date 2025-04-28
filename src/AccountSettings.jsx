@@ -6,7 +6,7 @@ import Banner from './Banner'
 import Preferences from './Preferences'
 import Profile from './Profile'
 
-const AccountSettings = () => {
+const AccountSettings = ({ message: { setAllData, allData } }) => {
 
   const [Choice, setChoice] = useState(0)
 
@@ -20,7 +20,7 @@ const AccountSettings = () => {
                     <button className="AccountSettings" onClick={() => setChoice(1)}>Preferences</button>
                 </div>
             </div>
-        {Choice === 0 ? <Profile /> : <Preferences />}
+        {Choice === 0 ? <Profile message={{ setAllData, allData }}/> : <Preferences message={{ setAllData, allData }}/>}
     </>
   );
 }

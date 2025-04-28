@@ -10,8 +10,11 @@ import Analytics from './Analytics'
 import GetStarted from './GetStarted'
 import Week from './Week';
 import Login from './Login';
+import LoginL from './LoginL';
 
 function App() {
+  const [allData, setAllData] = useState(null);
+
   return (
     <Router basename='/PlanIt/'>
       <div>
@@ -19,10 +22,11 @@ function App() {
           <Route path="/planner" element={<Home />} />
           <Route path="/" element={<AboutUs />} />
           <Route path="/analytics" element={<Analytics />} />
-          <Route path="/account-settings" element={<AccountSettings />} />
+          <Route path="/account-settings" element={<AccountSettings message={{ setAllData, allData }}/>} />
           <Route path="/get-started" element={<GetStarted />} />
           <Route path="/strike" element={<Week />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login message={{ setAllData, allData }}/>} />
+          <Route path="/loginL" element={<LoginL />} />
         </Routes>
       </div>
     </Router>

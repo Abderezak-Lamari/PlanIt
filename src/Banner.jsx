@@ -6,7 +6,7 @@ const Banner = () => {
   return (
     <>
       <div className="Pannel">
-        <img className="Logo" src="PlanIt.png" alt="Logo" />
+        <img src='logoL.png' className="Logo" alt="Logo" />
         
         <Link to="/" className="ButtonPannel">Home</Link>
         <Link to="/analytics" className="ButtonPannel">Analytics</Link>

@@ -1,0 +1,12 @@
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    email VARCHAR NOT NULL,
+    password VARCHAR NOT NULL,
+    username VARCHAR,
+    name VARCHAR,
+    gender VARCHAR,
+    date_of_birth DATE,
+    joining_date TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    theme INTEGER DEFAULT 0,
+    notify INTEGER[] DEFAULT ARRAY[0, 0, 0, 0, 0]
+);

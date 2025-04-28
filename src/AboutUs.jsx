@@ -106,7 +106,7 @@ const AboutUs = () => {
             <p className='NoteText'>At Plan It, we believe in the power of organization to simplify life. Our smart planner helps you manage tasks, set priorities, and stay productive effortlessly. Whether you're a student, a professional, or just someone who loves staying on track, our platform is designed to make planning fun and efficient. Join us in turning goals into achievements—one task at a time</p>
           </div>
 
-          <img src='Cat.png'  ref={ref8} className={`CuteCat ${inView8 ? 'animate__animated animate__fadeInBottomRight' : ''}`}></img>
+          <img src='Mas.png'  ref={ref8} className={`CuteCat ${inView8 ? 'animate__animated animate__fadeInBottomRight' : ''}`}></img>
         </div>
 
         <div className='PhoneAndText'>
