@@ -15,14 +15,15 @@ const Profile = ({ message: { setAllData, allData } }) => {
     });
 
     const [formValues, setFormValues] = useState({
-        name: allData.name,
-        dateOfBirth: allData.dateOfBirth,
-        gender: allData.gender,
-        email: allData.email,
-        username: allData.username,
-        password: allData.password,
-        joiningDate: allData.joiningDate,
+        name: allData?.name || '',
+        dateOfBirth: allData?.dateOfBirth || '',
+        gender: allData?.gender || '',
+        email: allData?.email || '',
+        username: allData?.username || '',
+        password: allData?.password || '',
+        joiningDate: allData?.joiningDate || '',
     });
+    
 
     console.log(formValues);
 
@@ -38,10 +39,52 @@ const Profile = ({ message: { setAllData, allData } }) => {
           ...prev,
           [field]: !prev[field],
         }));
+       
+        setFormValues((prev) => ({
+            ...prev,
+            [field]: allData?.[field] || '',
+        }));
     };
 
-    const SavePreferences = () => {
+    const SavePreferences = async() => {
+        try {
+            const response = await fetch(`http://localhost:5000/savePreferences/${allData.user_id}`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(formValues),
+            });
         
+            const data = await response.json();
+        
+            if (!response.ok) {
+              throw new Error(data.message || 'Something went wrong');
+            }
+        
+            console.log('User updated:', data.user);
+            alert('User updated successfully!');
+
+
+            setAllData(prev => ({
+                ...prev,
+                ...formValues
+            }));
+
+            setEditStates({
+                name: false,
+                dateOfBirth: false,
+                gender: false,
+                email: false,
+                username: false,
+                password: false,
+                joiningDate: false,
+            });
+              
+          } catch (error) {
+            console.error('Error updating user:', error);
+            alert('Failed to update user.');
+          }
     }
 
   return (
@@ -59,7 +102,7 @@ const Profile = ({ message: { setAllData, allData } }) => {
                         autoFocus
                         />
                     ) : (
-                        <p className='InfoText2'>{allData.name}</p>
+                        <p className='InfoText2'>{allData?.name}</p>
                     )}
                     <img src='pencil.png' className='Pen' onClick={() => flip('name')}></img>
                 </div>
@@ -73,7 +116,7 @@ const Profile = ({ message: { setAllData, allData } }) => {
                         autoFocus
                         />
                     ) : (
-                        <p className='InfoText2'>{allData.dateOfBirth}</p>
+                        <p className='InfoText2'>{allData?.dateOfBirth}</p>
                         )}
                     <img src='pencil.png' className='Pen' onClick={() => flip('dateOfBirth')}></img>
                 </div>
@@ -87,7 +130,7 @@ const Profile = ({ message: { setAllData, allData } }) => {
                         autoFocus
                         />
                     ) : (
-                        <p className='InfoText2'>{allData.gender}</p>
+                        <p className='InfoText2'>{allData?.gender}</p>
                         )}
                     <img src='pencil.png' className='Pen' onClick={() => flip('gender')}></img>
                 </div>
@@ -101,7 +144,7 @@ const Profile = ({ message: { setAllData, allData } }) => {
                         autoFocus
                         />
                     ) : (
-                        <p className='InfoText2'>{allData.email}</p>
+                        <p className='InfoText2'>{allData?.email}</p>
                         )}
                     <img src='pencil.png' className='Pen' onClick={() => flip('email')}></img>
                 </div>
@@ -123,7 +166,7 @@ const Profile = ({ message: { setAllData, allData } }) => {
                         autoFocus
                         />
                     ) : (
-                        <p className='InfoText2'>{allData.username}</p>
+                        <p className='InfoText2'>{allData?.username}</p>
                     )}
             <img src='pencil.png' className='Pen' onClick={() => flip('username')}></img>
         </div>
@@ -151,7 +194,7 @@ const Profile = ({ message: { setAllData, allData } }) => {
                         autoFocus
                         />
                     ) : (
-                        <p className='InfoText2'>{allData.joiningDate}</p>
+                        <p className='InfoText2'>{allData?.joiningDate}</p>
                         )}
             <img src='pencil.png' className='Pen' onClick={() => flip('joiningDate')}></img>
         </div>

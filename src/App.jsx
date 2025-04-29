@@ -15,6 +15,10 @@ import LoginL from './LoginL';
 function App() {
   const [allData, setAllData] = useState(null);
 
+  if (allData && allData.theme == 1) {
+    document.documentElement.setAttribute("data-theme", "dark");
+  }
+
   return (
     <Router basename='/PlanIt/'>
       <div>

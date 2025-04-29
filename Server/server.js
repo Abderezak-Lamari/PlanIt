@@ -35,7 +35,9 @@ app.post('/login', async (req, res) => {
       const data = user.rows[0];
   
       res.json({
+        user_id: data.user_id,
         email: data.email,
+        password : data.password,
         name: data.name,
         username: data.username,
         gender: data.gender,
@@ -67,6 +69,51 @@ app.post('/register', async (req, res) => {
       console.error(error);
       res.status(500).json({ success: false, message: 'Server error' });
     }
+});
+
+app.post('/savePreferences/:id', async (req, res) => {
+  const userId = req.params.id;
+  const { name, date_of_birth, gender, email, username, password, joining_date } = req.body;
+
+  try {
+
+    await pool.query(
+      `UPDATE users
+       SET name = $1,
+           date_of_birth = $2,
+           gender = $3,
+           email = $4,
+           username = $5,
+           password = $6,
+           joining_date = $7
+       WHERE user_id = $8`,
+      [name, date_of_birth, gender, email, username, password, joining_date, userId]
+    );
+    res.json({ success: true, message: 'Preferences saved' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+});
+
+app.post('/savePreferences-1/:id', async (req, res) => {
+  const userId = req.params.id;
+  const { theme, options } = req.body;
+
+  try {
+
+    await pool.query(
+      `UPDATE users
+       SET theme = $1,
+           notify = $2
+       WHERE user_id = $3`,
+      [theme, options, userId]
+    );
+    res.json({ success: true, message: 'Preferences saved' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
 });
 
 app.listen(PORT, () => {

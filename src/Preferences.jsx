@@ -2,9 +2,25 @@ import React, { useState, useEffect } from 'react';
 import './App.css'
 import Banner from './Banner';
 
-const Preferences = () => {
+const Preferences = ({ message: { setAllData, allData }}) => {
+  const [editStates, setEditStates] = useState({
+    theme: allData?.theme || 0,
+    EN: allData?.notify[0] || 0,
+    Re: allData?.notify[1] || 0,
+    Aff: allData?.notify[2] || 0,
+    Mark: allData?.notify[3] || 0,
+  });
+
   const [darkMode, setDarkMode] = useState(false);
   const [selectedTheme, setSelectedTheme] = useState("option1"); // Default to Light Theme
+  useEffect(() => {
+    if (allData) {
+      setDarkMode(allData.theme === 1); // true if theme is 1 (dark mode), false otherwise
+      setSelectedTheme(allData.theme === 1 ? "option2" : "option1");
+    }
+  }, [allData]);
+
+
 
   // Update the theme when darkMode state changes
   useEffect(() => {
@@ -20,14 +36,70 @@ const Preferences = () => {
     setSelectedTheme(event.target.value);
   };
 
+  const handleCheckChange = (event, field) => {
+    const isChecked = event.target.checked;
+    setEditStates((prev) => ({
+      ...prev,
+      [field]: isChecked ? 1 : 0,
+    }));
+
+  };
+
   // Handle Save Preferences button click
   const handleSavePreferences = () => {
     if (selectedTheme === "option2") {
       setDarkMode(true);  // Set dark mode if "Dark Theme" is selected
+      setEditStates((prev) => ({
+        ...prev,
+        theme: 1,
+      }));
     } else {
       setDarkMode(false); // Set light mode if "Light Theme" is selected
+      setEditStates((prev) => ({
+        ...prev,
+        theme: 0,
+      }));
     }
+
+    const SendIt = {
+      theme: selectedTheme === "option2" ? 1 : 0,
+      options : [editStates.EN, editStates.Re, editStates.Aff, editStates.Mark]
+    };
+
+    console.log(SendIt);
+    SavePreferences(SendIt)
   };
+
+  const SavePreferences = async(SendIt) => {
+    try {
+      const response = await fetch(`http://localhost:5000/savePreferences-1/${allData.user_id}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(SendIt),
+      });
+  
+      const data = await response.json();
+  
+      if (!response.ok) {
+        throw new Error(data.message || 'Something went wrong');
+      }
+  
+      console.log('User updated:', data.user);
+      alert('User updated successfully!');
+        
+    } catch (error) {
+      console.error('Error updating user:', error);
+      alert('Failed to update user.');
+    }
+
+    setAllData(prev => ({
+      ...prev,
+      theme: SendIt.theme,
+      notify: SendIt.options
+    }));
+  }
 
   return (
     <>
@@ -45,10 +117,10 @@ const Preferences = () => {
         </select>
 
         <h3 className='Notifications'>Notifications</h3>
-        <label><input type="checkbox" name="item1" value="EmailNotifications"/> Email notifications</label><br/>
-        <label><input className='checkbox' type="checkbox" name="item2" value="Reminders"/> Reminders</label><br/>
-        <label><input className='checkbox1' type="checkbox" name="item3" value="AffirmationMessages"/> Affirmation messages</label><br/>
-        <label><input type="checkbox" name="item4" value="MarketingEmails"/> Marketing emails</label><br/>
+        <label><input type="checkbox" name="item1" value="EmailNotifications" checked={editStates.EN === 1} onChange={(e) => handleCheckChange(e, 'EN')}/> Email notifications</label><br/>
+        <label><input className='checkbox' type="checkbox" name="item2" value="Reminders" checked={editStates.Re === 1} onChange={(e) => handleCheckChange(e, 'Re')}/> Reminders</label><br/>
+        <label><input className='checkbox1' type="checkbox" name="item3" value="AffirmationMessages" checked={editStates.Aff === 1} onChange={(e) => handleCheckChange(e, 'Aff')}/> Affirmation messages</label><br/>
+        <label><input type="checkbox" name="item4" value="MarketingEmails" checked={editStates.Mark === 1} onChange={(e) => handleCheckChange(e, 'Mark')}/> Marketing emails</label><br/>
 
         <p>Time Zone</p>
         <select id="TimeZone" name="TimeZone" className='Choose'>
