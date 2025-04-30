@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
 import './AboutUs.css'
 import Banner from './Banner';
@@ -7,6 +8,26 @@ import { useInView } from 'react-intersection-observer';
 import 'animate.css';
 
 const AboutUs = () => {
+
+  useEffect(() => {
+    const button = document.getElementById('get-started-btn');
+    const handleButtonClick = () => {
+      console.log('Button clicked');
+      // Navigate to the next page
+      navigate('/get-started');
+    };
+
+    if (button) {
+      button.addEventListener('click', handleButtonClick);
+    }
+
+    // Cleanup the event listener when the component is unmounted
+    return () => {
+      if (button) {
+        button.removeEventListener('click', handleButtonClick);
+      }
+    };
+  }, []);
 
   const useScrollAnimation = () => {
     return useInView({ triggerOnce: true, threshold: 0 });
@@ -74,11 +95,11 @@ const AboutUs = () => {
                 <div className='Line'>
                   <img className='Bubble'></img>
                   <img className='WigglyArrow'></img>
-                  <img className='CatLayingDown' src='CatLaying.png'></img>
+                  <img className='CatLayingDown' src='stuff.png'></img>
                 </div>
 
                 <div className='Line'>
-                  <button className='GetStartedButton'>Get Started</button>
+                  <button id="get-started-btn" className='GetStartedButton'>Get Started</button>
                 </div>
 
                 <div className='Line'>
@@ -120,7 +141,7 @@ const AboutUs = () => {
         <img className='HeartLine'></img>
 
         <div className='PhoneAndText'>
-          <img src='Phone.png' ref={ref2} className={`Phone2 ${inView2 ? 'animate__animated animate__fadeInLeft' : ''}`}></img>
+          <img src='Phone2.png' ref={ref2} className={`Phone2 ${inView2 ? 'animate__animated animate__fadeInLeft' : ''}`}></img>
           <div ref={ref3} className={`PhoneTextBox2 ${inView3 ? 'animate__animated animate__fadeInRight' : ''}`}>
             <p className='PhoneTextTitle'>Stay Consistent, Keep Winning</p>
             <p className='PhoneText'>We've designed our planner to help you stay consistent and motivated. Track your streaks effortlessly, build lasting habits, and push yourself toward success every day with smart insights and intuitive progress tracking</p>

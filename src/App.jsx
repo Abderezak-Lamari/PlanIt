@@ -11,6 +11,7 @@ import GetStarted from './GetStarted'
 import Week from './Week';
 import Login from './Login';
 import LoginL from './LoginL';
+import './App.css'
 
 function App() {
   const [allData, setAllData] = useState(null);

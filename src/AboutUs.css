@@ -1,5 +1,6 @@
 body {
   font-family: 'Roboto', sans-serif;
+  
 }
 
 .NotebookBox {
@@ -10,7 +11,6 @@ body {
     max-width: 55rem;
     max-height: 40rem;
     z-index: -2;
-    color: black;
 }
 
 .Springs {
@@ -54,8 +54,8 @@ body {
 
 .TitlePage h2 {
     text-align: center;
-    font-size: 1.8rem;
-    font-weight: 500;
+    font-size: 2.5rem;
+    font-weight: 600;
     margin: 0;
 }
 
@@ -90,6 +90,7 @@ body {
     border-radius: 0.3rem;
     color: white;
     font-weight: bold;
+    z-index: 10;
 }
 
 .LineText {

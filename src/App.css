@@ -3,6 +3,22 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+.f {
+  height: 24vh;
+}
+
+.b {
+  background-color: var(--f);
+}
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 .Pannel {
   height: 3.5rem;
   width: 100%;
@@ -14,6 +30,7 @@ body {
   font-weight: 500;
   color: black;
   overflow: hidden;
+  background-color: var(--e);
 }
 
 .ButtonPannel {

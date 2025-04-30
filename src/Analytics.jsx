@@ -9,10 +9,46 @@ import { Chart } from 'chart.js/auto';
 import { Line, Bar } from 'react-chartjs-2';
 
 const Analytics = () => {
+
+  const [fdata, setFdata] = useState([]);
+  const [Percentage, setPercentage] = useState([]);
+
+  const RetrieveDatabase = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/day-tasks/", {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Something went wrong');
+      }
+
+      console.log('Retrieved data:', data);
+      setFdata(data);
+      const var1 = data.length;
+      const var2 = data.filter(task => task.status === 1).length;
+      setPercentage(var2 * 100 / var1);
+
+    } catch (error) {
+      console.error('Error retrieving data:', error);
+      alert('Failed to retrieve data.');
+    }
+  };
+
+  useEffect(() => {
+    RetrieveDatabase()
+  }, []);
+
   const labels = ["January", "February", "march", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  const labels2 = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 
   return (
-    <>
+    <div className='b'>
     <Banner /> 
     <div className='DayWeekBoxB'>
       <div className='StatName'>
@@ -25,7 +61,7 @@ const Analytics = () => {
           <div className='Bottle'>
             <div className='Square'></div>
             <div className='Circle shadow-drop-2-center'>
-              <p className='Percentage'>40%</p>
+              <p className='Percentage'>{Percentage}%</p>
               <div className="wave one"></div>
               <div className="wave two"></div>
               <div className="wave three"></div>
@@ -40,7 +76,7 @@ const Analytics = () => {
             
             <Bar
               data={{
-                labels: labels,
+                labels: labels2,
                 datasets: [
                   {
                     label: "Progress",
@@ -115,7 +151,7 @@ const Analytics = () => {
       </div>
     </div>
     </div>
-    </>
+    </div>
   );
 }
 export default Analytics;

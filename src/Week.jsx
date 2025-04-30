@@ -1,21 +1,36 @@
 import React from 'react';
 
+import { useEffect, useState } from 'react';
+
 import Banner from './Banner';
 import Element from './Element';
 
 import './Week.css'
 
 const Week = () => {
+
+  const [quote, setQuote] = useState('');
+
+  const fetchQuote = async () => {
+    const res = await fetch('https://api.adviceslip.com/advice');
+    const data = await res.json();
+    setQuote(data.slip.advice);
+  };
+
+  useEffect(() => {
+    fetchQuote();
+  }, []);
+
   return (
-    <>
+    <div className='b'>
       <Banner />
       <div className='Void'>
       <div className='Quote'>
         <div className='Idk'>
           <h1 className='Hey'>Hey !</h1>
           <h1 className='Me'>"</h1>
-          <h3 className='Mee'>Do stuff to get good (Skill issue tbh)</h3>
-          <p className='M'>-Abderezak</p>
+          <h3 className='Mee'>{quote}</h3>
+          <p className='M'>-From AdviceClip</p>
         </div>
         <img className='Cat' src='Cat.png'></img>
       </div>
@@ -43,29 +58,89 @@ const Week = () => {
       </div>
 
       <div className='Checkmarks'>
-        <ul>
-          <li className='CheckBox'><input type="checkbox" disabled/> Item 1</li>
-          <li className='CheckBox'><input type="checkbox" checked/> Item 2</li>
-          <li className='CheckBox'><input type="checkbox" checked/> Item 3</li>
-          <li className='CheckBox'><input type="checkbox" checked/> Item 2</li>
-          <li className='CheckBox'><input type="checkbox" checked/> Item 3</li>
-          <li className='CheckBox'><input type="checkbox" checked/> Item 1</li>
-          <li className='CheckBox'><input type="checkbox" checked/> Item 1</li>
-          <li className='CheckBox'><input type="checkbox" disabled/> Item 2</li>
-          <li className='CheckBox'><input type="checkbox" checked/> Item 3</li>
-          <li className='CheckBox'><input type="checkbox" disabled/> Item 1</li>
-          <li className='CheckBox'><input type="checkbox" disabled/> Item 2</li>
-          <li className='CheckBox'><input type="checkbox" checked/> Item 3</li>
-          <li className='CheckBox'><input type="checkbox" disabled/> Item 1</li>
-          <li className='CheckBox'><input type="checkbox" checked/> Item 2</li>
-          <li className='CheckBox'><input type="checkbox" checked/> Item 3</li>
-          <li className='CheckBox'><input type="checkbox" disabled/> Item 1</li>
-          <li className='CheckBox'><input type="checkbox" checked/> Item 2</li>
-          <li className='CheckBox'><input type="checkbox" disabled/> Item 3</li>
-        </ul>
+        <div className='check'>
+          <img src='0.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
+        <div className='check'>
+          <img src='1.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
+        <div className='check'>
+          <img src='1.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
+        <div className='check'>
+          <img src='0.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
+        <div className='check'>
+          <img src='1.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
+        <div className='check'>
+          <img src='0.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
+        <div className='check'>
+          <img src='1.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
+        <div className='check'>
+          <img src='0.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
+        <div className='check'>
+          <img src='0.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
+        <div className='check'>
+          <img src='1.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
+        <div className='check'>
+          <img src='0.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
+        <div className='check'>
+          <img src='1.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
+        <div className='check'>
+          <img src='1.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
+        <div className='check'>
+          <img src='0.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
+        <div className='check'>
+          <img src='1.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
+        <div className='check'>
+          <img src='0.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
+        <div className='check'>
+          <img src='1.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
+        <div className='check'>
+          <img src='0.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
+        <div className='check'>
+          <img src='0.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
+        <div className='check'>
+          <img src='1.png' className='squareCheck'></img>
+          <p className='do'>Do stuff</p>
+        </div>
       </div>
       </div>
-    </>
+    </div>
   );
 }
 

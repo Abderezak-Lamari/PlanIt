@@ -11,6 +11,7 @@
     --xbar: lightgray;
     --barsmanhelp: gray;
     --col: white;
+    --e: rgba(255, 251, 240, 1);
     --pcol: rgba(251, 235, 241, 1);
     --barl: lightgray;
     --endme: Black;
@@ -22,9 +23,11 @@
     --image-url: url('Background.png');
     --a: rgba(255, 41, 178, 1);
     --logoo: url('logoL.png');
+    --f: rgba(255, 251, 240, 1);
 }
   
 [data-theme="dark"] {
+    --f: black;
     --logoo: url('logo.png');
     --a: rgba(151, 71, 255, 1);
     --wa: rgba(151, 71, 255, 0.72);
@@ -40,13 +43,14 @@
     --xbar: rgba(151, 71, 255, 0.6);
     --barsmanhelp: black;
     --col: black;
+    --e: black;
     --pcol: rgba(140, 122, 206, 1);
     --endme: rgba(0, 0, 0, 0.48);
     --www: rgba(193, 182, 242, 1);
     --blackwee: black;
     --bb: rgba(208, 196, 242, 1);
     --bt: rgba(31, 23, 104, 1);
-    --b: black;
+    --b: rgba(151, 71, 255, 1);
     color: white;
     background-color: black;
     --image-url: url();
@@ -272,14 +276,18 @@
 .DayText {
     width: 40%;
     margin-left: 2vw;
-    font-size: large;
+    font-size: 32px;
     font-weight: bold;
 }
 
 .WeekText {
     margin-left: 2vw;
-    font-size: large;
+    font-size: 32px;
     font-weight: bold;
+}
+
+h2 {
+    font-size: 32px;
 }
 
 .YearBoxB {
@@ -295,11 +303,12 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+    font-size: 20px;
 }
 
 .DateGraph {
     display: flex;
-    font-size: small;
+    font-size: 20px;
 }
 
 .Date {

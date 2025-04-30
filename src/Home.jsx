@@ -274,7 +274,7 @@ const Home = () => {
   }
 
   return (
-    <>
+    <div className='b'>
       <Banner />
       <h2 className='Title'>Your AI Planner</h2>
       <h3 className='AskText'>Tell me about your tasks</h3>
@@ -330,7 +330,6 @@ const Home = () => {
                   <td className='PlannerOption'>{hour}:00</td>
                   {slots.map((task, idx) => (
                     <td key={idx} className='PlannerCell' onClick={() => ShowOptions({ hour, idx })}>{task}
-                      <div className={`status ${statusColorMap[(fdata.find(entry => entry.hour === hour && entry.num === idx).status)]}`}></div>
                     </td>
                   ))}
                 </tr>
@@ -342,7 +341,7 @@ const Home = () => {
       <textarea id="feedback" className='TextAI'></textarea>
       <button className='TaskButton'>Regenerate</button>
       <div className='Air'></div>
-    </>
+    </div>
   );
 }
 

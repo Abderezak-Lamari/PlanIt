@@ -18,7 +18,7 @@ html {
     height: 10rem;
     display: flex;
     justify-content: space-between;
-    background: linear-gradient(0deg, var(--col), var(--wa));
+    background: linear-gradient(0deg, var(--e), var(--wa));
 }
 
 .Titl {
@@ -27,7 +27,7 @@ html {
     border-bottom: 1px solid black;
     width: fit-content;
     margin-top: 3rem;
-    font-size: 1.2rem;
+    font-size: 26px;
     margin-bottom: 2rem;
 }
 
@@ -43,7 +43,7 @@ html {
 .List {
     display: flex;
     align-items: center;
-    height: 10rem;
+    height: 209px;
     margin-right: 3rem;
 }
 
@@ -51,6 +51,7 @@ html {
     margin: 0;
     color: rgba(182, 29, 172, 1);
     font-weight: bolder;
+    text-align: left;
 }
 
 .RealList {
@@ -85,9 +86,12 @@ html {
 
 .Element {
     height: 100%;
+    width: 101px;
     background-color: var(--a);
     border-radius: 3rem;
-    margin-right: 1rem;
+    margin-right: 65px;
+    align-items: center;
+    justify-content: center;
 }
 
 .Face {
@@ -96,14 +100,37 @@ html {
     border-radius: 50%;
     margin: 1rem auto;
     background-color: white;
-    margin-left: 1rem;
+    margin-left: 1.1rem;
     margin-right: 1rem;
+    align-self: center;
+}
+
+.check {
+    display: flex;
+}
+
+.squareCheck {
+    width: 32px;
+    height: 32px;
+}
+
+.check {
+    margin-bottom: 1rem;
+}
+
+.do {
+    align-self: center;
+    justify-self: center;
+    margin: auto 0;
+    margin-left: 15px;
+    font-size: 20px;
 }
 
 .Num {
     text-align: center;
     margin: 0;
     margin-top: -0.2rem;
+    font-size: 36px;
 }
 
 .Day {
@@ -122,7 +149,7 @@ html {
 }
 
 .Date {
-    font-size: 0.8rem;
+    font-size: 20px;
     margin-left: 0;
     margin-bottom: 3rem;
 }
@@ -131,6 +158,7 @@ html {
     font-size: 3rem;
     margin: 0;
     margin-top: -1rem;
+    text-align: left;
 }
 
 .M {
