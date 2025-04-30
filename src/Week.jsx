@@ -9,18 +9,6 @@ import './Week.css'
 
 const Week = () => {
 
-  const [quote, setQuote] = useState('');
-
-  const fetchQuote = async () => {
-    const res = await fetch('https://api.adviceslip.com/advice');
-    const data = await res.json();
-    setQuote(data.slip.advice);
-  };
-
-  useEffect(() => {
-    fetchQuote();
-  }, []);
-
   return (
     <div className='b'>
       <Banner />
@@ -29,8 +17,8 @@ const Week = () => {
         <div className='Idk'>
           <h1 className='Hey'>Hey !</h1>
           <h1 className='Me'>"</h1>
-          <h3 className='Mee'>{quote}</h3>
-          <p className='M'>-From AdviceClip</p>
+          <h3 className='Mee'>Start before you’re ready. Good things happen when you start before you’re ready</h3>
+          <p className='M'>-Steven Pressfield​</p>
         </div>
         <img className='Cat' src='Cat.png'></img>
       </div>
