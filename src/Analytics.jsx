@@ -150,6 +150,7 @@ const Analytics = () => {
       </div>
     </div>
     </div>
+    <div className='f'></div>
     </div>
   );
 }

@@ -7,6 +7,12 @@ ul {
     margin-left: 3rem;
 }
 
+.fa {
+    height: 50%;
+    margin-left: 0.7rem;
+    margin-top: 1rem;
+}
+
 html {
     scrollbar-gutter: auto;
 }
