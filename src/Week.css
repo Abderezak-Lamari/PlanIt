@@ -79,7 +79,10 @@ html {
     background-color: rgba(210, 39, 182, 0.57);
     border: none;
     border-radius: 50%;
-    height: 1.2rem;
+    height: 1.7rem;
+    width: 2rem;
+    padding-bottom: 0.3rem;
+    font-weight: bolder;
 }
 
 .LeftB {
@@ -87,7 +90,10 @@ html {
     background-color: rgba(210, 39, 182, 0.57);
     border: none;
     border-radius: 50%;
-    height: 1.2rem;
+    height: 1.7rem;
+    width: 2rem;
+    padding-bottom: 0.3rem;
+    font-weight: bolder;
 }
 
 .Element {

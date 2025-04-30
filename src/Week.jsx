@@ -41,13 +41,13 @@ const Week = () => {
       <div className='List'>
         <button className='LeftB'>&lt;</button>
         <div className='RealList'>
-          <Element></Element>
-          <Element></Element>
-          <Element></Element>
-          <Element></Element>
-          <Element></Element>
-          <Element></Element>
-          <Element></Element>
+          <Element day={"Sat"} num={11}></Element>
+          <Element day={"Sun"} num={12}></Element>
+          <Element day={"Mon"} num={13}></Element>
+          <Element day={"Tue"} num={14}></Element>
+          <Element day={"Wed"} num={15}></Element>
+          <Element day={"Thu"} num={16}></Element>
+          <Element day={"Fri"} num={17}></Element>
         </div>
         <button className='RightB'>&gt;</button>
       </div>
@@ -60,83 +60,83 @@ const Week = () => {
       <div className='Checkmarks'>
         <div className='check'>
           <img src='0.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>study</p>
         </div>
         <div className='check'>
           <img src='1.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>Do homework</p>
         </div>
         <div className='check'>
           <img src='1.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>rest</p>
         </div>
         <div className='check'>
           <img src='0.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>Go outside</p>
         </div>
         <div className='check'>
           <img src='1.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>Do laundry</p>
         </div>
         <div className='check'>
           <img src='0.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>Go to the gym</p>
         </div>
         <div className='check'>
           <img src='1.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>Study</p>
         </div>
         <div className='check'>
           <img src='0.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>Do homework</p>
         </div>
         <div className='check'>
           <img src='0.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>Meditate</p>
         </div>
         <div className='check'>
           <img src='1.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>Read a book</p>
         </div>
         <div className='check'>
           <img src='0.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>Study</p>
         </div>
         <div className='check'>
           <img src='1.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>Study</p>
         </div>
         <div className='check'>
           <img src='1.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>Do homework</p>
         </div>
         <div className='check'>
           <img src='0.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>Do homework</p>
         </div>
         <div className='check'>
           <img src='1.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>Study</p>
         </div>
         <div className='check'>
           <img src='0.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>Study</p>
         </div>
         <div className='check'>
           <img src='1.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>Do homework</p>
         </div>
         <div className='check'>
           <img src='0.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>Do homework</p>
         </div>
         <div className='check'>
           <img src='0.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>Read book</p>
         </div>
         <div className='check'>
           <img src='1.png' className='squareCheck'></img>
-          <p className='do'>Do stuff</p>
+          <p className='do'>Read book</p>
         </div>
       </div>
       </div>
