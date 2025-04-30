@@ -99,15 +99,15 @@ const Analytics = () => {
             <div className='BoxInfo'>
               <div className='InfoAnalytic'>
                 <div className='ColorInfo1'></div>
-                <p className='guideStatWeek'>Wooop Woooop</p>
+                <p className='guideStatWeek'>excellent progress!</p>
               </div>
               <div className='InfoAnalytic'>
                 <div className='ColorInfo2'></div>
-                <p className='guideStatWeek'>Keep Going idk maybe</p>
+                <p className='guideStatWeek'>Thats impressive!</p>
               </div>
               <div className='InfoAnalytic'>
                 <div className='ColorInfo3'></div>
-                <p className='guideStatWeek'>Thats kinda cool fr fr no cap</p>
+                <p className='guideStatWeek'>Thats really good</p>
               </div>
             </div>
           </div>
