@@ -55,6 +55,23 @@
     border-radius: 0.5rem;
 }
 
+.status {
+    width: 10px;
+    height: 10px;
+}
+
+.bg-red-200 {
+    background-color: red;
+}
+
+.bg-white-200 {
+    background-color: white;
+}
+
+.bg-green-100 {
+    background-color: green;
+}
+
 .TaskLeft {
     width: 80%;
     margin: auto 0;

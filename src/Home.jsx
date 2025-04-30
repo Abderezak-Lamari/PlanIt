@@ -1,11 +1,12 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Banner from './Banner';
 
 import './Home.css'
 import './Task'
 import Task from './Task';
+import { data } from 'react-router-dom';
 
 const Home = () => {
 
@@ -13,6 +14,77 @@ const Home = () => {
   const [responseText, setResponseText] = useState('');
   const [loading, setLoading] = useState(false);
   const [plannerData, setPlannerData] = useState([]);
+  const [filtered, setFiltered] = useState([]);
+  const [fdata, setFdata] = useState([]);
+
+  const [selectedCell, setSelectedCell] = useState({ hour: null, idx: null });
+
+  const statusColorMap = {
+    2: 'bg-red-200',
+    0: 'bg-white-200',
+    1: 'bg-green-100',
+  };
+
+  const [hour, setHour] = useState(null);
+
+  useEffect(() => {
+    const getCurrentHour = () => {
+      const currentHour = new Date().getHours();
+      setHour(currentHour);
+    };
+
+    getCurrentHour();
+  }, []);
+
+  const RetrieveDatabase = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/day-tasks/", {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Something went wrong');
+      }
+
+      console.log('Retrieved data:', data);
+      setFdata(data);
+
+      // Grouping the data by hour
+      const grouped = data.reduce((acc, item) => {
+        const hour = item.hour;
+        const name = item.name;
+
+        if (!acc[hour]) {
+          acc[hour] = {
+            hour: hour,
+            slots: []
+          };
+        }
+
+        acc[hour].slots.push(name);
+        return acc;
+      }, {});
+
+      const sortedGroupedData = Object.values(grouped).sort((a, b) => a.hour.localeCompare(b.hour));
+
+
+      // Convert grouped object to an array and set the state
+      setFiltered(Object.values(sortedGroupedData));
+
+    } catch (error) {
+      console.error('Error retrieving data:', error);
+      alert('Failed to retrieve data.');
+    }
+  };
+
+  useEffect(() => {
+    RetrieveDatabase()
+  }, []);
 
   const command = "I want you to give me a Full day ToDo list based on how and what i want to do in my day, i will be giving you that in the end, the way i want you to answer is to first give me the time from when to when, then the activity, you will do that line by line and dont say anything other than that here are the Guidelines : \n 1- DO NOT SAY ANYTHING OTHER THAN THE TODO LIST ITSELF THAT MEANS DONT SAY HERE YOU GO OR SOMETHING \n 2- The way you will phrase things is in this way, I will give you an example \n 8:00-13:00-pet cat \n 13:00-15:00-go for a walk \n THIS IS THE DISCRIPTION OF MY TODO LIST : \n ";
 
@@ -47,6 +119,15 @@ const Home = () => {
       setLoading(false);
     }
   };
+
+  const ShowOptions = (hour, idx) => {
+    setSelectedCell( hour, idx );
+    fdata.forEach(item => {
+      if (item.hour === hour && item.num === idx) {
+        console.log(item.status);
+      }
+    });
+  }
 
   const processResponse = (text) => {
     // Parse the response text into task items
@@ -121,8 +202,39 @@ const Home = () => {
     
     // Update state
     setPlannerData(planner);
-    console.log(planner);
+    
+    const filteredItems = planner.filter(item =>
+      item.slots.some(slot => slot.trim() !== '')
+    );
+    
+    setFiltered(filteredItems);
+    PutOnDatabase(filteredItems);
   };
+
+  const PutOnDatabase = async(filtered) => {
+    console.log(filtered);
+    try {
+      const response = await fetch("http://localhost:5000/day-tasks/", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(filtered),
+      });
+  
+      const data = await response.json();
+  
+      if (!response.ok) {
+        throw new Error(data.message || 'Something went wrong');
+      }
+
+      alert('day updated!');
+        
+    } catch (error) {
+      console.error('Error updating user:', error);
+      alert('Failed to update user.');
+    }
+  }
   
   // Get list of tasks for Task components
   const getTasks = () => {
@@ -196,7 +308,7 @@ const Home = () => {
         <img src="Mas.png" className='Cat' alt="Cat mascot" />
       </div>
 
-      <button className='TaskButton' onClick={() => console.log(plannerData)}>Generate My Planner</button>
+      <button className='TaskButton' onClick={() => console.log(fdata)}>Generate My Planner</button>
       <h3 className='AskText'></h3>
       <h3 className='AskText'>Your Planner:</h3>
       <div className='PlannerBox'>
@@ -211,13 +323,15 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-            {plannerData
+            {filtered
               .filter(({ slots }) => slots.some(task => task !== ''))
               .map(({ hour, slots }) => (
                 <tr key={hour}>
                   <td className='PlannerOption'>{hour}:00</td>
                   {slots.map((task, idx) => (
-                    <td key={idx} className='PlannerCell'>{task}</td>
+                    <td key={idx} className='PlannerCell' onClick={() => ShowOptions({ hour, idx })}>{task}
+                      <div className={`status ${statusColorMap[(fdata.find(entry => entry.hour === hour && entry.num === idx).status)]}`}></div>
+                    </td>
                   ))}
                 </tr>
               ))}

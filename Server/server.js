@@ -71,6 +71,56 @@ app.post('/register', async (req, res) => {
     }
 });
 
+app.get('/day-tasks', async (req, res) => {
+  try {
+    const today = new Date().toISOString().split('T')[0];
+    const dayResult = await pool.query('SELECT id FROM day WHERE date = $1', [today]);
+    const dayId = dayResult.rows[0]?.id;
+
+    if (!dayId) {
+      return res.status(404).json({ error: 'No tasks found for today.' });
+    }
+
+    const result = await pool.query('SELECT * FROM task WHERE day_id = $1', [dayId]);
+    res.json(result.rows);
+  } catch (err) {
+    console.error("Error during database query:", err); // Log the error here
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.post('/day-tasks', async (req, res) => {
+  const data = req.body;
+  const today = new Date().toISOString().split('T')[0];
+
+  try {
+    const userExists = await pool.query('SELECT * FROM day WHERE date = $1', [today]);
+
+    if (userExists.rows.length > 0) {
+      await pool.query('DELETE FROM day WHERE date = $1', [today]);
+    }
+
+    const insertDayResult = await pool.query('INSERT INTO day (date) VALUES ($1) RETURNING id', [today]);
+    const day = insertDayResult.rows[0].id;
+
+    for (const hourObj of data) {
+      if (!hourObj.hour || !Array.isArray(hourObj.slots)) continue;
+    
+      hourObj.slots.forEach(async (taskName, index) => {
+        await pool.query(
+          'INSERT INTO task (name, day_id, hour, num) VALUES ($1, $2, $3, $4)',
+          [taskName, day, hourObj.hour, index]
+        );
+      });
+    }
+
+    res.json({ success: true, message: 'Registration successful' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+});
+
 app.post('/savePreferences/:id', async (req, res) => {
   const userId = req.params.id;
   const { name, date_of_birth, gender, email, username, password, joining_date } = req.body;
