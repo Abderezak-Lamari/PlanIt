@@ -87,11 +87,9 @@ const Preferences = ({ message: { setAllData, allData }}) => {
       }
   
       console.log('User updated:', data.user);
-      alert('User updated successfully!');
         
     } catch (error) {
       console.error('Error updating user:', error);
-      alert('Failed to update user.');
     }
 
     setAllData(prev => ({

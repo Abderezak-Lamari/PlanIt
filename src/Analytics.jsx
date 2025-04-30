@@ -36,7 +36,6 @@ const Analytics = () => {
 
     } catch (error) {
       console.error('Error retrieving data:', error);
-      alert('Failed to retrieve data.');
     }
   };
 

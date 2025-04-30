@@ -78,7 +78,7 @@ const Home = () => {
 
     } catch (error) {
       console.error('Error retrieving data:', error);
-      alert('Failed to retrieve data.');
+
     }
   };
 
@@ -228,11 +228,9 @@ const Home = () => {
         throw new Error(data.message || 'Something went wrong');
       }
 
-      alert('day updated!');
         
     } catch (error) {
       console.error('Error updating user:', error);
-      alert('Failed to update user.');
     }
   }
   

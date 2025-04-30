@@ -63,7 +63,6 @@ const Profile = ({ message: { setAllData, allData } }) => {
             }
         
             console.log('User updated:', data.user);
-            alert('User updated successfully!');
 
 
             setAllData(prev => ({
@@ -83,7 +82,6 @@ const Profile = ({ message: { setAllData, allData } }) => {
               
           } catch (error) {
             console.error('Error updating user:', error);
-            alert('Failed to update user.');
           }
     }
 
